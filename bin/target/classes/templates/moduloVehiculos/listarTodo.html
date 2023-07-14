@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Listar Vehiculos</title>
+	<!-- <link rel="stylesheet" href="vehiculo.css"/> -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Poppins:wght@300&display=swap"
+		rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<header th:replace="/menu :: header"> </header>
+
+	<div align="center">
+		<br><br> <br><br>
+		<h1>Vehículos</h1>
+		<br>
+		<a class="btn btn-primary" th:href="@{/vehiculos/nuevo}">Crear Nuevo Vehiculo</a> <br><br>
+
+		<table order="1" cellpadding="10" class="table table-striped container">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Modelo</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Nro Matricula</th>
+					<th scope="col">Id Cliente</th>
+					<th scope="col">Color</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vehiculo : ${listaVehiculos}">
+					<td th:text="${vehiculo.id_vehiculo}">Id</td>
+					<td th:text="${vehiculo.modelo}">Modelo</td>
+					<td th:text="${vehiculo.estado}">Estado</td>
+					<td th:text="${vehiculo.nroMatricula}">Nro Matricula</td>
+					<td th:text="${vehiculo.id_cliente}">Id Cliente</td>
+					<td th:text="${vehiculo.color}">Color</td>
+
+					<td><a class="btn btn-success"
+							th:href="@{/vehiculos/actualizar/{id}(id=${vehiculo.id_vehiculo})}">Actualizar</a>
+						&nbsp;&nbsp;&nbsp; <a class="btn btn-danger"
+							th:href="@{/vehiculos/eliminar/{id}(id=${vehiculo.id_vehiculo})}">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

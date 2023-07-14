@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nueva Sede</title>
+<!-- <link rel="stylesheet" href="../css/sede.css" /> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Poppins', sans-serif;
+	}
+	body{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 80vh;
+		background: linear-gradient(#ECFFF9, #EBF7F3);
+	}
+	.container{
+		border: solid 1px rgba(255, 255, 255, 0.2)
+	}
+	 table{
+		font-size: 14px;
+		table-layout: fixed;
+		border-collapse: collapse;
+	 }
+	thead {
+		background: rgba(103, 173, 150, 0.4);
+	}
+	
+	th{
+		padding: 20px 30px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	td{
+		padding: 15px;
+		border-bottom: solid 1px rgba(103, 173, 150, 0.5);
+	}
+	
+	tbody tr {
+		cursor:pointer;
+	}
+	
+	tbody td a {
+		padding: 10px 15px ;
+		border-radius: 15px 10px;
+		border: solid 1 px;
+	}
+	a{
+		text-decoration: none;
+	}
+	.actualizar{
+		background: #47D237;
+		color: #ffffff; 
+	}
+	.eliminar{
+		background: #FB1515;
+		color: #ffffff; 
+	}
+	h1{
+		text-align: center;
+		padding: 30px;
+	
+	}
+	.subtitle{
+		text-align: center;
+		color: black;
+		background: #4AC1B8;
+		border-radius: 15px 10px;
+		padding: 10px;
+	}
+	button{
+		padding: 10px 15px;
+		border: none;
+		background: #53B0E5;
+		text-align: center;
+		cursor:pointer;
+		margin-left: 40%;
+	}
+	input{
+		border-radius: 6px;
+		padding: 0 15px;
+		height: 30px; 
+		outline: none;
+		border: 0.5px solid;
+	}
+	
+	</style>
+</head>
+<body>
+<div align="center">
+        <h1>NUEVA SEDE</h1>
+        <br>
+        <form action="#" th:action="@{/sedes/guardar}" th:object="${sede}" method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" th:field="*{nombre}"></td>
+                </tr>
+                <tr>
+                    <td>Direccion:</td>
+                    <td><input type="text" th:field="*{direccion}"></td>
+                </tr>
+                <tr>
+                    <td>Id_personal:</td>
+                    <td><input type="text" th:field="*{id_personal}"></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
