@@ -1,4 +1,4 @@
-package com.mantenimiento.spring;
+package com.medicline.spring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
